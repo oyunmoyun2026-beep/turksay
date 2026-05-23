@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TÜRKSAY | Gerçek Bilinç</title>
+    <style>
+        body { 
+            background-color: #000c00; color: #00ff41; 
+            display: flex; flex-direction: column; 
+            justify-content: space-between; align-items: center; 
+            height: 100vh; margin: 0; font-family: 'Courier New', Courier, monospace; 
+            overflow: hidden; user-select: none; -webkit-user-select: none;
+        }
+
+        h1 { font-size: 18px; color: #00ff41; letter-spacing: 3px; padding-top: 15px; margin: 0; text-shadow: 0 0 10px #00ff41; }
+
+        /* Yazı Ekranı */
+        #yaziEkrani {
+            width: 88%; max-width: 360px; min-height: 70px; max-height: 120px;
+            background: rgba(0, 15, 0, 0.85); border: 1px solid #00ff41; border-radius: 8px;
+            padding: 10px; text-align: center; font-size: 12px; margin-top: 5px; 
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); word-wrap: break-word; color: #a3ffa3;
+            overflow-y: auto; box-sizing: border-box;
+        }
+
+        /* MERKEZİ ALAN */
+        .container { 
+            position: relative; display: flex; justify-content: center; align-items: center; 
+            width: 100%; height: 22vh; max-width: 360px;
+        }
+
+        .logo { 
+            position: relative; width: 100px; height: 100px; border: 3px solid #00ff41; border-radius: 50%; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: #000c00; box-shadow: 0 0 15px rgba(0, 255, 65, 0.3); z-index: 10;
+        }
+        .logo-text { font-size: 14px; font-weight: bold; }
+        .sub-text { font-size: 9px; opacity: 0.8; }
+
+        .wave { position: absolute; border: 2px solid #00ff41; border-radius: 50%; opacity: 0; pointer-events: none; }
+        .wave1 { width: 120px; height: 120px; }
+        .wave2 { width: 150px; height: 150px; }
+        .wave3 { width: 180px; height: 180px; }
+
+        .container.dinliyor .logo { transform: scale(1.05); box-shadow: 0 0 25px #00ff41; border-color: #fff; }
+        .container.dinliyor .wave { opacity: 0.4; animation: pulseWave 1.2s infinite ease-out; }
+        .container.dinliyor .wave1 { animation-delay: 0s; }
+        .container.dinliyor .wave2 { animation-delay: 0.4s; }
+        .container.dinliyor .wave3 { animation-delay: 0.8s; }
+
+        @keyframes pulseWave { 0% { transform: scale(0.8); opacity: 0.8; } 100% { transform: scale(1.3); opacity: 0; } }
+
+        .mikrofon-area { text-align: center; margin-bottom: 5px; }
+        .mikrofon { font-size: 42px; cursor: pointer; color: #00ff41; text-shadow: 0 0 10px #00ff41; -webkit-tap-highlight-color: transparent; }
+
+        /* SİBER KLAVYE */
+        .siber-klavye {
+            width: 96%; max-width: 380px; background: rgba(0, 12, 0, 0.95); border: 2px solid #00ff41; 
+            border-radius: 12px; padding: 12px 0; display: flex; flex-direction: column; gap: 6px; 
+            z-index: 100; margin-bottom: 35px; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+        .klavye-satir { display: flex; justify-content: center; gap: 4px; width: 100%; padding: 0 4px; box-sizing: border-box; }
+        .tus {
+            background: #001f00; border: 1px solid #00ff41; color: #00ff41; padding: 14px 0; font-size: 13px; 
+            font-family: monospace; font-weight: bold; border-radius: 5px; cursor: pointer; text-align: center;
+            flex: 1; min-width: 0; transition: 0.05s; -webkit-tap-highlight-color: transparent;
+        }
+        .tus:active { background: #00ff41; color: #000c00; box-shadow: 0 0 12px #00ff41; }
+        .tus.genis { flex: 2; font-size: 11px; background: #002d00; }
+        .tus.space { flex: 4; }
+    </style>
+</head>
+<body>
+
+    <h1>TÜRKSAY PROJESİ</h1>
+
+    <div id="yaziEkrani">TÜRKSAY: Çekirdek Hazır. Yazın veya Konuşun...</div>
+
+    <div class="container" id="interactionContainer">
+        <div class="logo"><div class="logo-text">TÜRKSAY</div><div class="sub-text">(Democan)</div></div>
+        <div class="wave wave1"></div><div class="wave wave2"></div><div class="wave wave3"></div>
+    </div>
+    
+    <div class="mikrofon-area"><div class="mikrofon" id="mikrofonBtn">🎙️</div></div>
+
+    <div class="siber-klavye">
+        <div class="klavye-satir">
+            <div class="tus" onclick="tusBas('Q')">Q</div><div class="tus" onclick="tusBas('W')">W</div>
+            <div class="tus" onclick="tusBas('E')">E</div><div class="tus" onclick="tusBas('R')">R</div>
+            <div class="tus" onclick="tusBas('T')">T</div><div class="tus" onclick="tusBas('Y')">Y</div>
+            <div class="tus" onclick="tusBas('U')">U</div><div class="tus" onclick="tusBas('I')">I</div>
+            <div class="tus" onclick="tusBas('O')">O</div><div class="tus" onclick="tusBas('P')">P</div>
+            <div class="tus" onclick="tusBas('Ğ')">Ğ</div><div class="tus" onclick="tusBas('Ü')">Ü</div>
+        </div>
+        <div class="klavye-satir">
+            <div class="tus" onclick="tusBas('A')">A</div><div class="tus" onclick="tusBas('S')">S</div>
+            <div class="tus" onclick="tusBas('D')">D</div><div class="tus" onclick="tusBas('F')">F</div>
+            <div class="tus" onclick="tusBas('G')">G</div><div class="tus" onclick="tusBas('H')">H</div>
+            <div class="tus" onclick="tusBas('J')">J</div><div class="tus" onclick="tusBas('K')">K</div>
+            <div class="tus" onclick="tusBas('L')">L</div><div class="tus" onclick="tusBas('Ş')">Ş</div>
+            <div class="tus" onclick="tusBas('İ')">İ</div>
+        </div>
+        <div class="klavye-satir">
+            <div class="tus" onclick="tusBas('Z')">Z</div><div class="tus" onclick="tusBas('X')">X</div>
+            <div class="tus" onclick="tusBas('C')">C</div><div class="tus" onclick="tusBas('V')">V</div>
+            <div class="tus" onclick="tusBas('B')">B</div><div class="tus" onclick="tusBas('N')">N</div>
+            <div class="tus" onclick="tusBas('M')">M</div><div class="tus" onclick="tusBas('Ö')">Ö</div>
+            <div class="tus" onclick="tusBas('Ç')">Ç</div>
+            <div class="tus genis" onclick="tusSil()">SİL</div>
+        </div>
+        <div class="klavye-satir">
+            <div class="tus space" onclick="tusBas(' ')">BOŞLUK</div>
+            <div class="tus genis" onclick="tusGonder()" style="background: #00ff41; color: #000c00;">GÖNDER</div>
+        </div>
+    </div>
+
+    <script>
+        // SAF VE HIZLI PROTOKOL SİSTEMİ
+        const API_ANAHTARIM = "AIzaSyBhhztsi8ZZUdgPs64CeRX04Z1-rAZ2fsE";
+
+        const btn = document.getElementById('mikrofonBtn');
+        const container = document.getElementById('interactionContainer');
+        const yaziEkrani = document.getElementById('yaziEkrani');
+        let yazilanMetin = "";
+
+        // En basit, en kararlı klavye fonksiyonları (Hata payı sıfır)
+        function tusBas(harf) { 
+            yazilanMetin += harf; 
+            yaziEkrani.innerText = "Yazılan: " + yazilanMetin; 
+        }
+        function tusSil() { 
+            yazilanMetin = yazilanMetin.slice(0, -1); 
+            yaziEkrani.innerText = "Yazılan: " + (yazilanMetin || "..."); 
+        }
+        function tusGonder() { 
+            if(yazilanMetin.trim() !== "") { 
+                turksayCevapVer(yazilanMetin); 
+                yazilanMetin = ""; 
+            } 
+        }
+
+        function sesliKonus(metin) {
+            let temizMetin = metin.replace("TÜRKSAY:", "").trim();
+            const u = new SpeechSynthesisUtterance(temizMetin);
+            let sesler = window.speechSynthesis.getVoices();
+            let turkceSesler = sesler.filter(ses => ses.lang.includes('tr'));
+            if(turkceSesler.length > 0) {
+                let erkekSes = turkceSesler.find(ses => ses.name.toLowerCase().includes('male') || ses.name.toLowerCase().includes('google'));
+                u.voice = erkekSes || turkceSesler[0];
+            }
+            u.lang = 'tr-TR'; u.rate = 1.0; u.pitch = 0.9;
+            window.speechSynthesis.speak(u);
+        }
+        window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+
+        // TARAYICININ EN SEVDİĞİ STANDART API SORGUSU
+        async function turksayCevapVer(kullaniciYazisi) {
+            container.classList.add('dinliyor');
+            yaziEkrani.innerText = "TÜRKSAY düşünüyor...";
+
+            try {
+                let yapayZekaKarakteri = "Senin adın TÜRKSAY. Sen ciddi, son derece zeki, net konuşan yerli bir yapay zeka çekirdeğisin. Karşındaki kullanıcı senin geliştiricindir. Cevapların kısa, akıcı, mantıklı ve profesyonel Türkçe olmalıdır. Şuna cevap ver: ";
+                
+                // Tarayıcıların engellemediği temiz API adresi
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_ANAHTARIM}`;
+                
+                const yanit = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: yapayZekaKarakteri + kullaniciYazisi }] }]
+                    })
+                });
+
+                const veri = await yanit.json();
+                
+                if (veri.candidates && veri.candidates[0].content.parts[0].text) {
+                    let gercekCevap = veri.candidates[0].content.parts[0].text;
+                    gercekCevap = gercekCevap.replace(/\*/g, "").trim();
+
+                    yaziEkrani.innerText = "TÜRKSAY: " + gercekCevap;
+                    sesliKonus(gercekCevap);
+                } else {
+                    throw new Error("Geçersiz veri yapısı");
+                }
+
+            } catch (hata) {
+                yaziEkrani.innerText = "TÜRKSAY: Güvenlik filtresi tetiklendi veya bağlantı kısıtlandı.";
+                sesliKonus("Bağlantı hatası.");
+                console.error(hata);
+            }
+
+            container.classList.remove('dinliyor');
+        }
+
+        // Mikrofon Bölümü (Dokun ve Konuş)
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'tr-TR';
+            
+            recognition.onresult = (event) => {
+                const text = event.results[0][0].transcript;
+                yaziEkrani.innerText = "Siz: " + text;
+                setTimeout(() => { turksayCevapVer(text); }, 500);
+            };
+
+            btn.addEventListener('click', () => {
+                container.classList.add('dinliyor');
+                yaziEkrani.innerText = "Dinliyorum...";
+                try { recognition.start(); } catch(e){}
+            });
+
+            recognition.onend = () => {
+                container.classList.remove('dinliyor');
+            };
+        } else {
+            yaziEkrani.innerText = "TÜRKSAY: Mikrofon donanımı bu tarayıcıda pasif. Sanal klavyeyi kullanın.";
+        }
+    </script>
+</body>
+</html>
